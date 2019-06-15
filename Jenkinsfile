@@ -5,12 +5,16 @@ pipeline {
   }
   stages {
     stage("1st schema select") {
-      // sh "python ${PYTHON_FILE_1}"
-      sh "echo ${PYTHON_FILE_1}"
+      steps {
+        // sh "python ${PYTHON_FILE_1}"
+        sh "echo ${PYTHON_FILE_1}"
+      }
     }
     stage("2nd schema select") {
-      // sh "python ${PYTHON_FILE_2}"
-      sh "echo ${PYTHON_FILE_2}"
+      steps {
+        // sh "python ${PYTHON_FILE_2}"
+        sh "echo ${PYTHON_FILE_2}"
+      }
     }
   }
 }
