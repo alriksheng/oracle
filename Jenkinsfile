@@ -12,4 +12,5 @@ pipeline {
       // sh "python ${PYTHON_FILE_2}"
       sh "echo ${PYTHON_FILE_2}"
     }
+  }
 }
