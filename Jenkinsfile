@@ -13,13 +13,13 @@ pipeline {
     stage("1st schema select") {
       steps {
         // sh "python ${PYTHON_FILE_1}"
-        sh "echo ${PYTHON_FILE_1}"
+        sh "echo ${params.PYTHON_FILE_1}"
       }
     }
     stage("2nd schema select") {
       steps {
         // sh "python ${PYTHON_FILE_2}"
-        sh "echo ${PYTHON_FILE_2}"
+        sh "echo ${params.PYTHON_FILE_2}"
       }
     }
   }
