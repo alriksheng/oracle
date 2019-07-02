@@ -24,8 +24,7 @@ pipeline {
         // sh "python ${PYTHON_FILE_2}"
         sh "echo ${params.PYTHON_FILE_2}"
         // sh "python path/aa/bb/sss.py" //本地
-        // sh "python container/path/aa/bb/sss.py" //docker jenkins image里有python，pip install cx_oracle
-        // docker run -v path/aa/bb:container/path/aa/bb jenkins
+        
       }
     }
   }
