@@ -14,7 +14,7 @@ pipeline {
       steps {
         // sh "python ${PYTHON_FILE_1}"
         // sh "echo ${params.PYTHON_FILE_1}"
-        sh "python C:/Users/user/PycharmProjects/pygame/connectsql.py" //本地
+        sh "python C:/Users/user/PycharmProjects/pygame/plsql/connectsql.py" //本地
         // sh "mysql -h remote:3306 -e select * from abc where date=${PYTHON_FILE_1} and age = ${params.PYTHON_FILE_2}"
         // sh "python abc.py ${PYTHON_FILE_1} ${params.PYTHON_FILE_2}"
       }
