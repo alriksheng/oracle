@@ -39,7 +39,7 @@ pipeline {
         // execute
         sh "python ${params.FILE_PATH_PY}/${params.PYTHON_FILE}" //本地
       }
-    }
+    } 
     stage("2nd schema check") {
       steps {
         // execute
