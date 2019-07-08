@@ -1,7 +1,7 @@
 pipeline {
   parameters {
-    string(defaultValue: 'executeCall.py', description: 'PYTHON_FILE', name: 'PYTHON_FILE')
-    string(defaultValue: 'checkResult.py', description: 'PYTHON_FILE2', name: 'PYTHON_FILE2')
+    //string(defaultValue: 'executeCall.py', description: 'PYTHON_FILE', name: 'PYTHON_FILE')
+    string(defaultValue: 'checkResult.py', description: 'PYTHON_FILE', name: 'PYTHON_FILE')
     string(defaultValue: 'executeCall.sql', description: 'SQL_FILE', name: 'SQL_FILE')
     string(defaultValue: 'C:/Users/user/PycharmProjects/pygame/plsql', description: 'FILE_PATH_PY', name: 'FILE_PATH_PY')
     string(defaultValue: 'D:/pyoracle', description: 'FILE_PATH_SQL', name: 'FILE_PATH_SQL')
@@ -25,7 +25,7 @@ pipeline {
     stage("2nd schema check") {
       steps {
         // execute
-        sh "python ${params.FILE_PATH_PY}/${params.PYTHON_FILE2}" //本地
+        sh "python ${params.FILE_PATH_PY}/${params.PYTHON_FILE}" //本地
       }
     }
   }
