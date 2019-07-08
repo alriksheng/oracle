@@ -27,10 +27,7 @@ pipeline {
         sh "(Get-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE}) | ForEach-Object {$_ -replace 'DATA_d6','${params.DATA_d6}'} | Set-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE}"
         sh "(Get-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE}) | ForEach-Object {$_ -replace 'DATA_d7','${params.DATA_d7}'} | Set-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE}"
         sh "(Get-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE}) | ForEach-Object {$_ -replace 'DATA_mth','${params.DATA_mth}'} | Set-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE}"
-        // shell
-        // sh "sed -i 's/DATA_1/${params.DATA_1}/g' ${params.FILE_PATH}/${params.SQL_FILE}"
-        // sh "sed -i 's/DATA_2/${params.DATA_2}/g' ${params.FILE_PATH}/${params.SQL_FILE}"
-
+      
         // execute
         sh "python ${params.FILE_PATH_PY}/${params.PYTHON_FILE}" //本地
       }
