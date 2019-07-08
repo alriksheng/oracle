@@ -1,7 +1,17 @@
 pipeline {
   parameters {
-    string(defaultValue: 'xxxxx.py', description: '1st sql', name: 'PYTHON_FILE_1')
-    string(defaultValue: 'yyyyy.py', description: '2nd sql', name: 'PYTHON_FILE_2')
+    string(defaultValue: 'connectsql.py', description: 'PYTHON_FILE', name: 'PYTHON_FILE')
+    string(defaultValue: 'checkResult.py', description: 'PYTHON_FILE2', name: 'PYTHON_FILE_2')
+    string(defaultValue: '汇聚脚本.sql', description: 'SQL_FILE', name: 'SQL_FILE')
+    string(defaultValue: 'C:/Users/user/PycharmProjects/pygame/plsql', description: 'FILE_PATH', name: 'FILE_PATH')
+    string(defaultValue: '20190701', description: 'DATA_1', name: 'DATA_d1')
+    string(defaultValue: '20190702', description: 'DATA_2', name: 'DATA_d2')
+    string(defaultValue: '20190703', description: 'DATA_1', name: 'DATA_d3')
+    string(defaultValue: '20190704', description: 'DATA_2', name: 'DATA_d4')
+    string(defaultValue: '20190705', description: 'DATA_1', name: 'DATA_d5')
+    string(defaultValue: '20190706', description: 'DATA_2', name: 'DATA_d6')
+    string(defaultValue: '20190707', description: 'DATA_1', name: 'DATA_d7')
+    string(defaultValue: '20190701', description: 'DATA_2', name: 'DATA_mth')
   }
   agent any /*{
     node {
@@ -10,21 +20,29 @@ pipeline {
     }
   }*/
  stages {
-    stage("1st schema select") {
+    stage("1st schema call") {
       steps {
-        // sh "python ${PYTHON_FILE_1}"
-        // sh "echo ${params.PYTHON_FILE_1}"
-        sh "python C:/Users/user/PycharmProjects/pygame/plsql/connectsql.py" //本地
-        // sh "mysql -h remote:3306 -e select * from abc where date=${PYTHON_FILE_1} and age = ${params.PYTHON_FILE_2}"
-        // sh "python abc.py ${PYTHON_FILE_1} ${params.PYTHON_FILE_2}"
+        // powershell
+        sh "(Get-Content ${params.FILE_PATH}/${params.SQL_FILE}) | ForEach-Object {$_ -replace 'DATA_d1','${params.DATA_d1}'} | Set-Content ${params.FILE_PATH}/${params.SQL_FILE}"
+        sh "(Get-Content ${params.FILE_PATH}/${params.SQL_FILE}) | ForEach-Object {$_ -replace 'DATA_d2','${params.DATA_d2}'} | Set-Content ${params.FILE_PATH}/${params.SQL_FILE}"
+        sh "(Get-Content ${params.FILE_PATH}/${params.SQL_FILE}) | ForEach-Object {$_ -replace 'DATA_d3','${params.DATA_d3}'} | Set-Content ${params.FILE_PATH}/${params.SQL_FILE}"
+        sh "(Get-Content ${params.FILE_PATH}/${params.SQL_FILE}) | ForEach-Object {$_ -replace 'DATA_d4','${params.DATA_d4}'} | Set-Content ${params.FILE_PATH}/${params.SQL_FILE}"
+        sh "(Get-Content ${params.FILE_PATH}/${params.SQL_FILE}) | ForEach-Object {$_ -replace 'DATA_d5','${params.DATA_d5}'} | Set-Content ${params.FILE_PATH}/${params.SQL_FILE}"
+        sh "(Get-Content ${params.FILE_PATH}/${params.SQL_FILE}) | ForEach-Object {$_ -replace 'DATA_d6','${params.DATA_d6}'} | Set-Content ${params.FILE_PATH}/${params.SQL_FILE}"
+        sh "(Get-Content ${params.FILE_PATH}/${params.SQL_FILE}) | ForEach-Object {$_ -replace 'DATA_d7','${params.DATA_d7}'} | Set-Content ${params.FILE_PATH}/${params.SQL_FILE}"
+        sh "(Get-Content ${params.FILE_PATH}/${params.SQL_FILE}) | ForEach-Object {$_ -replace 'DATA_mth','${params.DATA_mth}'} | Set-Content ${params.FILE_PATH}/${params.SQL_FILE}"
+        // shell
+        // sh "sed -i 's/DATA_1/${params.DATA_1}/g' ${params.FILE_PATH}/${params.SQL_FILE}"
+        // sh "sed -i 's/DATA_2/${params.DATA_2}/g' ${params.FILE_PATH}/${params.SQL_FILE}"
+
+        // execute
+        sh "python ${params.FILE_PATH}/${params.PYTHON_FILE}" //本地
       }
     }
-    stage("2nd schema select") {
+    stage("2nd schema check") {
       steps {
-        // sh "python ${PYTHON_FILE_2}"
-        sh "echo ${params.PYTHON_FILE_2}"
-        // sh "python path/aa/bb/sss.py" //本地
-        
+        // execute
+        sh "python ${params.FILE_PATH}/${params.PYTHON_FILE2}" //本地
       }
     }
   }
