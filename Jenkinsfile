@@ -1,6 +1,5 @@
 pipeline {
   parameters {
-    //string(defaultValue: 'executeCall.py', description: 'PYTHON_FILE', name: 'PYTHON_FILE')
     string(defaultValue: 'checkResult.py', description: 'PYTHON_FILE', name: 'PYTHON_FILE')
     string(defaultValue: 'executeCall.sql', description: 'SQL_FILE', name: 'SQL_FILE')
     string(defaultValue: 'C:/Users/user/PycharmProjects/pygame/plsql', description: 'FILE_PATH_PY', name: 'FILE_PATH_PY')
