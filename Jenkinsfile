@@ -19,14 +19,14 @@ pipeline {
     stage("1st schema call") {
       steps {
         // powershell
-        sh "(Get-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE}) | %{Write-Host $_.Replace('DATA_d1,'${params.DATA_d1}')} | Set-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE}"
-        sh "(Get-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE}) | %{Write-Host $_.Replace('DATA_d2,'${params.DATA_d2}')} | Set-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE}"
-        sh "(Get-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE}) | %{Write-Host $_.Replace('DATA_d3,'${params.DATA_d3}')} | Set-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE}"
-        sh "(Get-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE}) | %{Write-Host $_.Replace('DATA_d4,'${params.DATA_d4}')} | Set-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE}"
-        sh "(Get-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE}) | %{Write-Host $_.Replace('DATA_d5,'${params.DATA_d5}')} | Set-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE}"
-        sh "(Get-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE}) | %{Write-Host $_.Replace('DATA_d6,'${params.DATA_d6}')} | Set-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE}"
-        sh "(Get-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE}) | %{Write-Host $_.Replace('DATA_d7,'${params.DATA_d7}')} | Set-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE}"
-        sh "(Get-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE}) | %{Write-Host $_.Replace('DATA_mth,'${params.DATA_mth}')} | Set-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE}"
+        sh "(Get-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE}) | %{Write-Host $_.Replace('DATA_d1','${params.DATA_d1}')} | Set-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE}"
+        sh "(Get-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE}) | %{Write-Host $_.Replace('DATA_d2','${params.DATA_d2}')} | Set-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE}"
+        sh "(Get-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE}) | %{Write-Host $_.Replace('DATA_d3','${params.DATA_d3}')} | Set-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE}"
+        sh "(Get-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE}) | %{Write-Host $_.Replace('DATA_d4','${params.DATA_d4}')} | Set-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE}"
+        sh "(Get-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE}) | %{Write-Host $_.Replace('DATA_d5','${params.DATA_d5}')} | Set-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE}"
+        sh "(Get-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE}) | %{Write-Host $_.Replace('DATA_d6','${params.DATA_d6}')} | Set-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE}"
+        sh "(Get-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE}) | %{Write-Host $_.Replace('DATA_d7','${params.DATA_d7}')} | Set-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE}"
+        sh "(Get-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE}) | %{Write-Host $_.Replace('DATA_mth','${params.DATA_mth}')} | Set-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE}"
       
         // execute
         sh "python ${params.FILE_PATH_PY}/${params.PYTHON_FILE}" //本地
