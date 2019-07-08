@@ -14,13 +14,8 @@ pipeline {
     string(defaultValue: '20190707', description: 'DATA_d7', name: 'DATA_d7')
     string(defaultValue: '20190701', description: 'DATA_mth', name: 'DATA_mth')
   }
-  agent any /*{
-    node {
-      label "docker"
-      customWorkspace "workspace/${env.JOB_NAME}"
-    }
-  }*/
- stages {
+  agent any 
+  stages {
     stage("1st schema call") {
       steps {
         // powershell
@@ -38,12 +33,6 @@ pipeline {
 
         // execute
         sh "python ${params.FILE_PATH_PY}/${params.PYTHON_FILE}" //本地
-      }
-    } 
-    stage("2nd schema check") {
-      steps {
-        // execute
-        sh "python ${params.FILE_PATH_PY}/${params.PYTHON_FILE2}" //本地
       }
     }
   }
