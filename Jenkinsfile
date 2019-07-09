@@ -12,7 +12,7 @@ pipeline {
     stage("1st schema executeCall") {
       steps {
         // powershell
-        sh "(Get-Content ${params.FILE_PATH}/${params.SQL_FILE_TEMP}) | ForEach-Object {$_ .replace 'DATA_1','${params.DATA_1}'} | Set-Content ${params.FILE_PATH}/${params.SQL_FILE}"
+        //sh "(Get-Content ${params.FILE_PATH}/${params.SQL_FILE_TEMP}) | ForEach-Object {$_ .replace 'DATA_1','${params.DATA_1}'} | Set-Content ${params.FILE_PATH}/${params.SQL_FILE}"
         // execute
         sh "python ${params.FILE_PATH}/${params.PYTHON_FILE}" //本地
       }
