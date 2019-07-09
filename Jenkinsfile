@@ -21,8 +21,8 @@ pipeline {
       steps {
         // powershell
         //powershell "dir"
-        PowerShell "dir"
-        //bat "powershell.exe dir"
+        //PowerShell "dir"
+        bat "powershell.exe dir"
         //"Get-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE_TEMP} | ForEach-Object {$_ -replace ('DATA_d1','20190701') -replace ('DATA_d2','20190702') -replace ('DATA_d3','20190703') -replace ('DATA_d4','20190704') -replace ('DATA_d5','20190705') -replace ('DATA_d6','20190706') -replace ('DATA_d7','20190707') -replace ('DATA_mth','20190701')}| Set-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE}"
         // execute
         //sh "python ${params.FILE_PATH_PY}/${params.PYTHON_FILE}" //本地
