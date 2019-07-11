@@ -25,11 +25,17 @@ pipeline {
         //sh "python ${params.FILE_PATH_PY}/${params.PYTHON_FILE}" //本地
       }
     } 
-   /* stage("2nd schema check") {
+   stage("2nd schema check") {
       steps {
-        // execute
-        sh "python ${params.FILE_PATH_PY}/${params.PYTHON_FILE2}" //本地
+        script {
+          // to int
+          data_int = ${params.DATA_d1} as Integer
+          data = data_int + 1
+          
+          // to string
+          data_sting = data as String
+        }
       }
-    } */
+    } 
   }
 }
