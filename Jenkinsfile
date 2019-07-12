@@ -45,9 +45,9 @@ pipeline {
         script{
           // to int
           def data_d1_int = params.DATA_d1 as Integer
-          data_end_int = data_d1_int + 29
+          mth_end_int = data_d1_int + 29
           // to string
-          data_end_str = data_end_int as String
+          mth_end_str = mth_end_int as String
           // powershell
           powershell "Get-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE_TEMP2} | ForEach-Object {\$_ -replace ('DATA_d1','${params.DATA_d1}') -replace ('mth_end', '${mth_end_str}') }| Set-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE2}"
 
