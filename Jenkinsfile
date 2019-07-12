@@ -21,21 +21,20 @@ pipeline {
       steps {
         script{
           // to int
-          def data_d1_int
-          data_d1_int = ${params.DATA_d1} as Integer
-          data_d2_int = data_d1_int + 1
-          data_d3_int = data_d1_int + 2
-          data_d4_int = data_d1_int + 3
-          data_d5_int = data_d1_int + 4
-          data_d6_int = data_d1_int + 5
-          data_d7_int = data_d1_int + 6
+          def data_d1_int = ${params.DATA_d1} as Integer
+          def data_d2_int = data_d1_int + 1
+          def data_d3_int = data_d1_int + 2
+          def data_d4_int = data_d1_int + 3
+          def data_d5_int = data_d1_int + 4
+          def data_d6_int = data_d1_int + 5
+          def data_d7_int = data_d1_int + 6
           // to string
-          data_d2_str = data_d2_int as String
-          data_d3_str = data_d2_int as String
-          data_d4_str = data_d2_int as String
-          data_d5_str = data_d2_int as String
-          data_d6_str = data_d2_int as String
-          data_d7_str = data_d2_int as String
+          def data_d2_str = data_d2_int as String
+          def data_d3_str = data_d2_int as String
+          def data_d4_str = data_d2_int as String
+          def data_d5_str = data_d2_int as String
+          def data_d6_str = data_d2_int as String
+          def data_d7_str = data_d2_int as String
           // powershell
           sh "Get-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE_TEMP} | ForEach-Object {\$_ -replace ('DATA_d1','${params.DATA_d1}') -replace ('DATA_d2', '${data_d2_str}')}| Set-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE}"
         }
