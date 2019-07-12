@@ -21,7 +21,7 @@ pipeline {
       steps {
         script{
           // to int
-          def data_d1_int = ${params.DATA_d1} as Integer
+          def data_d1_int = params.DATA_d1 as Integer
           data_d2_int = data_d1_int + 1
           data_d3_int = data_d1_int + 2
           data_d4_int = data_d1_int + 3
