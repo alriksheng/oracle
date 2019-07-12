@@ -36,10 +36,11 @@ pipeline {
           data_d6_str = data_d2_int as String
           data_d7_str = data_d2_int as String
           // powershell
-          sh "Get-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE_TEMP} | ForEach-Object {\$_ -replace ('DATA_d1','${params.DATA_d1}') -replace ('DATA_d2', '${data_d2_str}') -replace ('DATA_d3','${data_d3_str}') -replace ('DATA_d4','${data_d4_str}') -replace ('DATA_d5','${data_d5_str}') -replace ('DATA_d6','${data_d6_str}') -replace ('DATA_d7','${data_d7_str}') -replace ('DATA_mth','${params.DATA_mth}')}| Set-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE}"
+          sh "Get-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE_TEMP} | ForEach-Object {\$_ -replace ('DATA_d1','${params.DATA_d1}') -replace ('DATA_d2', '\${data_d2_str}')}| Set-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE}"
 
         }
-                // execute
+        
+         // execute
         //sh "python ${params.FILE_PATH_PY}/${params.PYTHON_FILE}" //本地
       }
     } 
