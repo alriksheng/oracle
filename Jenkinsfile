@@ -19,7 +19,7 @@ pipeline {
   stages {
     stage("1st schema call") {
       steps {
-        script{
+        /*script{
           // to int
           def data_d1_int = params.DATA_d1 as Integer
           data_d2_int = data_d1_int + 1
@@ -36,9 +36,9 @@ pipeline {
           data_d6_str = data_d2_int as String
           data_d7_str = data_d2_int as String
           
-        }
+        }*/
         // powershell
-          sh "Get-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE_TEMP} | ForEach-Object {\$_ -replace 'DATA_d1','${params.DATA_d1}'}| Set-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE}"
+          sh "Get-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE_TEMP} | ForEach-Object {\$_ -replace ('DATA_d1','${params.DATA_d1}')}| Set-Content ${params.FILE_PATH_SQL}/${params.SQL_FILE}"
 
          // execute
         //sh "python ${params.FILE_PATH_PY}/${params.PYTHON_FILE}" //本地
