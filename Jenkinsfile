@@ -22,12 +22,12 @@ pipeline {
         script{
           // to int
           def data_d1_int = params.DATA_d1 as Integer
-          data_d2_int = data_d1_int + 1
-          data_d3_int = data_d1_int + 2
-          data_d4_int = data_d1_int + 3
-          data_d5_int = data_d1_int + 4
-          data_d6_int = data_d1_int + 5
-          data_d7_int = data_d1_int + 6
+          def data_d2_int = data_d1_int + 1
+          def data_d3_int = data_d1_int + 2
+          def data_d4_int = data_d1_int + 3
+          def data_d5_int = data_d1_int + 4
+          def data_d6_int = data_d1_int + 5
+          def data_d7_int = data_d1_int + 6
           // to string
           data_d2_str = data_d2_int as String
           data_d3_str = data_d2_int as String
