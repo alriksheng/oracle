@@ -36,7 +36,7 @@ pipeline {
 
         }
                 // execute
-        //sh "python ${params.FILE_PATH_PY}/${params.PYTHON_FILE}" //本地
+        //sh "python ${params.FILE_PATH_PY}/${params.PYTHON_FILE} ${params.FILE_PATH_SQL}/${params.SQL_FILE}" //本地
       }
     } 
     stage("2nd schema check") {
@@ -52,7 +52,7 @@ pipeline {
 
         }
         // execute
-        //sh "python ${params.FILE_PATH_PY}/${params.PYTHON_FILE2}" //本地
+        //sh "python ${params.FILE_PATH_PY}/${params.PYTHON_FILE2} ${params.FILE_PATH_SQL}/${params.SQL_FILE2}" //本地
       }
     }
   }
