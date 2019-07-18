@@ -10,6 +10,10 @@ pipeline {
     string(defaultValue: 'D:/pyoracle', description: 'FILE_PATH_SQL', name: 'FILE_PATH_SQL')
     string(defaultValue: '20190701', description: 'DATA_d1', name: 'DATA_d1')
     string(defaultValue: '20190701', description: 'DATA_mth', name: 'DATA_mth')
+    string(defaultValue: '10.161.97.183:1521/orcl', description: 'DATABASENAME_183', name: 'DATABASENAME_183')
+    string(defaultValue: 'C##FAST183', description: 'USERNAME_183', name: 'USERNAME_183')
+    string(defaultValue: '192.168.61.161:1521/FAST', description: 'DATABASENAME_161', name: 'DATABASENAME_161')
+    string(defaultValue: 'fast', description: 'USERNAME_161', name: 'USERNAME_161')
   }
   agent any 
   stages {
@@ -36,7 +40,7 @@ pipeline {
 
         }
                 // execute
-        //sh "python ${params.FILE_PATH_PY}/${params.PYTHON_FILE}" //本地
+        //sh "python ${params.FILE_PATH_PY}/${params.PYTHON_FILE} ${params.FILE_PATH_SQL}/${params.SQL_FILE} ${params.USERNAME_183} ${params.DATABASENAME_183}" //本地
       }
     } 
     stage("2nd schema check") {
@@ -52,7 +56,7 @@ pipeline {
 
         }
         // execute
-        //sh "python ${params.FILE_PATH_PY}/${params.PYTHON_FILE2}" //本地
+        //sh "python ${params.FILE_PATH_PY}/${params.PYTHON_FILE2} ${params.FILE_PATH_SQL}/${params.SQL_FILE2} ${params.USERNAME_183} ${params.DATABASENAME_183}" //本地
       }
     }
   }
